@@ -1,3 +1,5 @@
 class Choice < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :user
+  belongs_to :response
+  has_one :survey, through: :response
 end
