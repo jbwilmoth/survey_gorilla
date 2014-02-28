@@ -48,10 +48,12 @@ end
 get '/profile/:profile_id' do
   if current_user.id.to_i == params[:profile_id].to_i
     @surveys = Survey.where(creator_id: current_user.id).order("created_at DESC")
-    @your_surveys = 
+    @your_surveys =
     erb :'user/dashboard'
   else
     redirect '/' #change to 404 error, add 404 get to session
   end
 end
+
+
 
