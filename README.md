@@ -24,8 +24,15 @@ GETTING STARTED (ESTABLISHING A NEW FEATURE BRANCH)
   git push -u origin branchname
   ```
 
-5. Continue working on your branch, git add --all and git commit often.
-
+5. Continue working on your branch, 
+  ```
+  git add --all
+  ```
+and
+  ```
+  git commit
+  ```
+often. 
 Move on to the next steps.
 
 STEPS FOR MERGING YOUR BRANCH INTO MASTER
