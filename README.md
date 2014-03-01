@@ -24,7 +24,7 @@ GETTING STARTED (ESTABLISHING A NEW FEATURE BRANCH)
   git push -u origin branchname
   ```
 
-5. Continue working on your branch, 
+5. Continue working on your branch, using 
   ```
   git add --all
   ```
