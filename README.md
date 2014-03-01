@@ -20,7 +20,7 @@ STEPS FOR MERGING YOUR BRANCH INTO MASTER
 1. git add and git commit your final changes on your branch
 Push the latest version of your branch up to its remote on github (git push -u origin yourbranchname)
 
-2.Go to our project page on github. Select your branch from the dropdown menu of branches, making sure that your latest push went through from step 3.
+2. Go to our project page on github. Select your branch from the dropdown menu of branches, making sure that your latest push went through from step 3.
 
 3. Click the bright green "Compare and Pull Request" button
 In the message box, write what you think should be done with the merge conflicts outlined, if any.
