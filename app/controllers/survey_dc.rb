@@ -19,3 +19,14 @@ post '/add_question' do
   survey.questions.create!(content: params[:question_context])
   {user_id: session[:id]}.to_json
 end
+
+get '/add_choice' do
+  erb :add_choices
+end
+
+post '/add_choice' do
+  question = Question.last
+  params.each do |choice|
+    question.choices.create!(content: choice[1])
+  end
+end
