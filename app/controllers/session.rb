@@ -4,7 +4,8 @@ get '/login' do
 end
 
 post '/login' do
-  @user = User.authenticate(params[:email], params[:password])
+  @user = User.find_by email: params[:email]
+  @user.authenticate(params[:password]) 
   if @user
     session[:id] = @user.id
     redirect "/profile/#{@user.id}"
