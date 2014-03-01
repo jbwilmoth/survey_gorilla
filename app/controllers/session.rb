@@ -5,8 +5,8 @@ end
 
 post '/login' do
   @user = User.find_by email: params[:email]
-  @user.authenticate(params[:password]) 
-  if @user
+
+  if @user && @user.authenticate(params[:password])
     session[:id] = @user.id
     redirect "/profile/#{@user.id}"
   else
@@ -17,6 +17,6 @@ end
 
 ## Log out
 get '/logout' do
-  session[:id] = nil 
+  session[:id] = nil
   redirect '/'
-end 
+end
