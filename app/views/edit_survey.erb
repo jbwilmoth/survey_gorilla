@@ -1,17 +1,10 @@
-get '/survey/edit/:survey_id' do
-  @survey = Survey.find(params[:survey_id])
-  erb :edit_survey
-end
+<div class="edit_survey>
+  <form id="edit_survey" method="post" action="/save_survey/<% @survey.id %>">
+    <input type="text" name="user[username]" placeholder="">
+    <br>
+    <input type="password" name="user[password]" placeholder="Password">
+    <br>
+    <input name="submit[signup]" type="submit" value="Sign In">
+  </form>
 
-post '/edit_survey' do
-  @survey = Survey.find(params[:survey_id].to_i)
-  @survey.update_attributes( name: params[:survey_name])
-  @question = @survey.questions[0]
-  @question.update_attributes(content: params[:question])
-  @choices = @question.choices
-  @choices.each_with_index do |choice, index|
-    choice.update_attributes(content: params[("choice#{index}").to_sym])
-  end
-
-  redirect "/survey/edit/#{params[:survey_id]}"
-end
+</div>

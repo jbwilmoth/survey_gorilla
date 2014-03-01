@@ -1,8 +1,10 @@
-<div class="container"> 
-  <form id="sign-up" method="post" action="/users">
-    <input type="text" name="user[username]" placeholder="Username"> 
+<div class="container">
+  <form id="sign-up" method="post" action="/register">
+    <input type="text" name="user[email]" placeholder="Username">
     <br>
     <input type="password" name="user[password]" placeholder="Password">
+    <br>
+     <input type="password" name="user[password_confirmation]" placeholder="Password Confirmation">
     <br>
     <input name="submit[register]" type="submit" value="Register">
   </form>
