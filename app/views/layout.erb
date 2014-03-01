@@ -14,17 +14,19 @@
     </header>
     <nav>
       <ul>
-        <li><a href="/">Home</a>
-        <li><a hred="/surveys/all">Surveys</a></li>
-        <ul class="submenu">
-          <li><a href="/create_survey">Create Survey</a></li>
-          <li><a href="/survey/:survey_id/edit">Edit Survey</a></li>
-        </ul>
-        <li><a href="/profile/:profile_id">Profile</a></li>
-        <ul class="submenu">
-          <li><a href="/profile/:profile_id/edit">Edit Profile</a></li>
-          <li><a href="/profile/:profile_id/delete">Delete Profile</a></li>
-        </ul>
+        <li><a href="/">Home</a></li>
+        <li><a hred="/surveys/all">Surveys</a>
+          <ul class="submenu">
+            <li><a href="/create_survey">Create Survey</a></li>
+            <li><a href="/survey/:survey_id/edit">Edit Survey</a></li>
+          </ul>
+        </li>
+        <li><a href="/profile/:profile_id">Profile</a>
+          <ul class="submenu">
+            <li><a href="/profile/:profile_id/edit">Edit Profile</a></li>
+            <li><a href="/profile/:profile_id/delete">Delete Profile</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   <%= yield %>
