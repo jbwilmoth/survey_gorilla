@@ -6,8 +6,7 @@
     <h2>Question: <%= question.content %></h2>
       <% question.choices.each do |choice| %>
   <div class="radio_button_option">
-    <input type="hidden" name="choice_id" value="<% choice.id %>">
-    <input type="radio" name="<%= question.content %>" value="<%= choice.id %>"><%= choice.content %>
+    <input type="radio" name="<%= question.id %>" value="<%= choice.id %>"><%= choice.content %>
   </div>
       <% end %>
   <% end %>

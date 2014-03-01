@@ -23,24 +23,22 @@ end
 get '/user/:user_id/surveys' do
 
   # @user = User.find(params[:user_id])
-  @current_user = User.find(1)
+  @current_user = User.find(session[:id])
 
   erb :'/survey_jr/my_surveys_jr'
 end
 
 post '/survey/:survey_id/record' do
+  total_response = Response.all.length
+  @survey = Survey.find(params[:survey_id])
+  @current_user = User.find(session[:id])
 
-  @choice = Choice.find_by id: params[:choice_id]
-  @current_user = User.find(1)
-
-  @res = Response.new({
-    taker_id: @current_user.id,
-    choice_id: @choice.id})
-
-  if @res.save
-    redirect "/user/#{@current_user.id}"
-  else
-    @errors = @res.errors.messages
-    erb :"/surveys/all"
+  @survey.questions.each do |question|
+      Response.create({
+        taker_id: session[:id],
+        choice_id: params[question.id]})
   end
+
+    redirect "/user/#{@current_user.id}"
+
 end
