@@ -15,3 +15,9 @@ post '/edit_survey' do
 
   redirect "/survey/edit/#{params[:survey_id]}"
 end
+
+get '/survey/:survey_id/results' do 
+  @survey = Survey.find(params[:survey_id].to_i)
+  @choices = @survey.choices
+  erb :view_results
+end
