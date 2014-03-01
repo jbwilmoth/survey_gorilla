@@ -1,0 +1,16 @@
+<h3> <%= @survey.name %> Results</h3>
+<div>
+  <%= @survey.questions.first.content %>
+</div>
+
+<div>
+  Times Taken: <%= @survey.responses.length %>
+</div>
+
+<div>
+  <% @survey.choices.each do |choice| %>
+    <div>
+      <%= choice.content %> <%= Choice.where("content = ?", choice.content).length %>
+    </div>
+  <% end %>
+</div>
