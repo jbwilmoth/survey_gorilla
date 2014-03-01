@@ -20,7 +20,13 @@
           <li><a href="/create_survey">Create Survey</a></li>
           <li><a href="/survey/:survey_id/edit">Edit Survey</a></li>
         </ul>
-        <li><a href=""
+        <li><a href="/profile/:profile_id">Profile</a></li>
+        <ul class="submenu">
+          <li><a href="/profile/:profile_id/edit">Edit Profile</a></li>
+          <li><a href="/profile/:profile_id/delete">Delete Profile</a></li>
+        </ul>
+        <li>
+
   <%= yield %>
 </body>
 </html>
