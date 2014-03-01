@@ -27,19 +27,3 @@ get '/survey/:survey_id/results' do
 
   erb :view_results
 end
-
-# <div>
-#   <%= @survey.questions.first.content %>
-# </div>
-
-# <div>
-#   Times Taken: <%= @survey.responses.length %>
-# </div>
-
-# <div>
-#   <% @survey.choices.each do |choice| %>
-#     <div>
-#       <%= choice.content %> <%= Choice.where("content = ?", choice.content).length %>
-#     </div>
-#   <% end %>
-# </div>
