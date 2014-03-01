@@ -10,7 +10,11 @@
 <body>
   <div class="container">
     <header>
-      <h1>Hi, How are you?</h1>
+      <% if session[:id] %>
+        <h1>Hi, <%= current_user.email.gsub(/(.+)@.+/, '\1') %> How are you?</h1>
+      <% else %>
+        <h1>Hi, How are you?</h1>
+      <% end %>
     </header>
   <%= yield %>
 </body>
