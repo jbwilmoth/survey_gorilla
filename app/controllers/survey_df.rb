@@ -1,4 +1,4 @@
-get '/survey/edit/:survey_id' do
+get '/survey/:survey_id/edit' do
   @survey = Survey.find(params[:survey_id])
   erb :edit_survey
 end
