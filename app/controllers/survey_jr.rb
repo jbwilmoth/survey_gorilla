@@ -16,6 +16,7 @@ get '/user/:user_id' do
   # @user = User.find(params[:user_id])
   @current_user = User.find(1)
 
+
   erb :'/survey_jr/index'
 end
 
@@ -27,19 +28,20 @@ get '/user/:user_id/surveys' do
   erb :'/survey_jr/my_surveys_jr'
 end
 
-post '/survey/:survey_id/record' do
+post '/survey/:survey_id/record' do 
 
   @choice = Choice.find_by id: params[:choice_id]
-  @current_user = User.find(1)
+  @current_user = User.find(1) 
 
-  @response = Response.create({
+  @res = Response.new({
     taker_id: @current_user.id,
     choice_id: @choice.id})
 
-  if @response.save
-    redirect to ("/user/#{@current_user.id}")
+  if @res.save
+    binding.pry
+    redirect "/user/#{@current_user.id}"
   else
-    @errors = @response.errors.messages
+    @errors = @res.errors.messages
     erb :"/surveys/all"
   end
 end
