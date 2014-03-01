@@ -5,17 +5,15 @@ end
 
 get '/survey/take/:survey_id' do
 
-  @survey = Survey.find(1)
-  @current_user = User.find(1)
+  @survey = Survey.find(params[:survey_id])
+  @current_user = User.find(session[:id])
 
   erb :'/survey_jr/take_survey_jr'
 end
 
 get '/user/:user_id' do
 
-  # @user = User.find(params[:user_id])
-  @current_user = User.find(1)
-
+  @current_user = User.find(session[:id])
 
   erb :'/survey_jr/index'
 end
