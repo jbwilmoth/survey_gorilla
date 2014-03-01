@@ -11,13 +11,6 @@ get '/survey/take/:survey_id' do
   erb :'/survey_jr/take_survey_jr'
 end
 
-get '/user/:user_id' do
-
-  @current_user = User.find(session[:id])
-
-  erb :'/survey_jr/index'
-end
-
 get '/user/:user_id/surveys' do
 
   # @user = User.find(params[:user_id])
