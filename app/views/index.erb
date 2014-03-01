@@ -1,4 +1,9 @@
 <div class="container">
-  <h1>Click <a href="/login">Here</a> to login.</h1><br/>
-  <h1>Click <a href="/register">Here</a> to register.</h1>
+
+  <% if session[:id] == nil %>
+    <h1>Click <a href="/login">Here</a> to login.</h1><br/>
+    <h1>Click <a href="/register">Here</a> to register.</h1>
+  <% else %>
+    <h2><a href="/logout">Logout</a></h2>
+  <% end %>
 </div>

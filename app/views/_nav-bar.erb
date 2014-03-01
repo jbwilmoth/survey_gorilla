@@ -1,0 +1,12 @@
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a hred="/surveys/all">Surveys</a></li>
+    <li><a href="/profile/<%=current_user%>">Profile</a>
+      <ul class="submenu">
+        <li><a href="/profile/<%=current_user%>/edit">Edit Profile</a></li>
+        <li><a href="/profile/<%=current_user%>/delete">Delete Profile</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>

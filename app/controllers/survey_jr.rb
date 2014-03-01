@@ -28,17 +28,16 @@ get '/user/:user_id/surveys' do
   erb :'/survey_jr/my_surveys_jr'
 end
 
-post '/survey/:survey_id/record' do 
+post '/survey/:survey_id/record' do
 
   @choice = Choice.find_by id: params[:choice_id]
-  @current_user = User.find(1) 
+  @current_user = User.find(1)
 
   @res = Response.new({
     taker_id: @current_user.id,
     choice_id: @choice.id})
 
   if @res.save
-    binding.pry
     redirect "/user/#{@current_user.id}"
   else
     @errors = @res.errors.messages
