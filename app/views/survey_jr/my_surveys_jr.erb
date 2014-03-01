@@ -4,8 +4,8 @@
 
   <% @current_user.surveys.each do |survey| %>
     <h3><%= survey.name %></h3>
-    <h4><a href="survey/edit/<%= survey.id%>">Edit Survey</a></h4>
-    <h4><a href="survey/view_results/<%= survey.id%>">View Results</a></h4>
+    <h4><a href="/survey/<%= survey.id%>/edit">Edit Survey</a></h4>
+    <h4><a href="/survey/<%= survey.id%>/results">View Results</a></h4>
     <% end %>
 
 </div>

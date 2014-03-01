@@ -13,7 +13,7 @@ post '/edit_survey' do
     choice.update_attributes(content: params[("choice#{index}").to_sym])
   end
 
-  redirect "/survey/edit/#{params[:survey_id]}"
+  redirect "/user/#{current_user.id}/surveys"
 end
 
 get '/survey/:survey_id/results' do
