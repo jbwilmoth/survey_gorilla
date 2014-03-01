@@ -4,7 +4,7 @@
 
   <% Survey.all.each do |survey| %>
       <h3><%= survey.name %></h3>
-      <h4><a href="survey/take/<%= survey.id %>">Take Survey</a></h4>
+      <h4><a href="/survey/take/<%= survey.id %>">Take Survey</a></h4>
     <% end %>
 
 </div>

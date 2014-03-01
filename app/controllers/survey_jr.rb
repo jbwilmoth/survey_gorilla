@@ -26,3 +26,20 @@ get '/user/:user_id/surveys' do
 
   erb :'/survey_jr/my_surveys_jr'
 end
+
+post '/survey/:survey_id/record' do
+
+  @choice = Choice.find_by id: params[:choice_id]
+  @current_user = User.find(1)
+
+  @response = Response.create({
+    taker_id: @current_user.id,
+    choice_id: @choice.id})
+
+  if @response.save
+    redirect to ("/user/#{@current_user.id}")
+  else
+    @errors = @response.errors.messages
+    erb :"/surveys/all"
+  end
+end

@@ -1,10 +1,16 @@
 <div id="take_survey">
 
-  <h2><%= @survey.name %></h2>
+  <h2>Survey: <%= @survey.name %></h2>
 
-  <h4><%= @survey.questions.each do |question| %></h4>
-    <h2><%= question.content %></h2>
-  <
+  <h4><% @survey.questions.each do |question| %></h4>
+    <h2>Question: <%= question.content %></h2>
+      <% question.choices.each do |choice| %>
+  <form action="/survey/<%= @survey.id %>/record" method="POST" id="submit">
+    <input type="radio" name="choice_id" value="<%= choice.id %>"><%= choice.content %>
+      <% end %>
+  <% end %>
 
+  <input type="submit" value="Submit">
+</form>
 
 </div>
