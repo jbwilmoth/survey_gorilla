@@ -7,7 +7,7 @@ DO THIS REALLY OFTEN SO ANY MERGE CONFLICTS ARE SUPER MINOR. KEEP BRANCH FEATURE
 
 GETTING STARTED (ESTABLISHING A NEW FEATURE BRANCH)
 
-1.  Checkout branch master 
+1. Checkout branch master 
   ```
   git checkout master
   ```
