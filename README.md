@@ -11,9 +11,19 @@ GETTING STARTED (ESTABLISHING A NEW FEATURE BRANCH)
   ```
   git checkout master
   ```
-2. Pull the latest master branch (git pull)
-3. Checkout a new branch named for your feature (git checkout -b branchname)
-4. Add your branch to the remote repository (git push -u origin branchname)
+2. Pull the latest master branch 
+  ```
+  git pull
+  ```
+3. Checkout a new branch named for your feature
+  ```
+  git checkout -b branchname
+  ```
+4. Add your branch to the remote repository
+  ```
+  git push -u origin branchname
+  ```
+
 5. Continue working on your branch, git add --all and git commit often.
 
 Move on to the next steps.
