@@ -7,7 +7,10 @@ DO THIS REALLY OFTEN SO ANY MERGE CONFLICTS ARE SUPER MINOR. KEEP BRANCH FEATURE
 
 GETTING STARTED (ESTABLISHING A NEW FEATURE BRANCH)
 
-1.  Checkout branch master (git checkout master)
+1.  Checkout branch master 
+  ```
+  git checkout master
+  ```
 2. Pull the latest master branch (git pull)
 3. Checkout a new branch named for your feature (git checkout -b branchname)
 4. Add your branch to the remote repository (git push -u origin branchname)
