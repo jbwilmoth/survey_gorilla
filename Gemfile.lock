@@ -29,6 +29,7 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     i18n (0.6.9)
+    minitest (4.7.5)
     multi_json (1.8.4)
     pg (0.17.1)
     rack (1.5.2)
@@ -62,6 +63,8 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
+    thread_safe (0.2.0)
+      atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
     tzinfo (0.3.38)
 
