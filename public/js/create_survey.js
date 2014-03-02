@@ -1,6 +1,7 @@
 $(document).ready(function() {
   // Hides the link
   $('.finish-survey').toggle();
+  $('.add-question').toggle();
 
   // Action to be taken when the create-survey submit button is clicked
   $('#create-survey').on('submit', function(event) {
@@ -35,6 +36,7 @@ $(document).ready(function() {
         // Gets the add-choice form
         $.get('/add_choice', function(serverResponse) {
           $('#append-choice').append(serverResponse);
+          $('.add-question').toggle();
           $('.finish-survey').toggle();
 
           // Action to be taken when the add-choice submit button is clicked

@@ -24,8 +24,5 @@ end
 
 post '/add_choice' do
   question = Question.last
-  p params
-  # params.each do |choice|
-    # question.choices.create!(content: choice[1])
-  # end
+  question.choices.create!(content: params[:choice_context])
 end
