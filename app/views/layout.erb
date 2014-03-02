@@ -10,9 +10,11 @@
   <script src="/js/application.js"></script>
   <title>POLLDOT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- GOOGLE FONT-->
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700italic,700,500&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!-- /GOOGLE FONT-->
+  <link href="/css/app.css" rel="stylesheet">
   <link href="/css/font-awesome.min.css" rel="stylesheet"> 
   </head>
     <body data-spy="scroll" data-target=".navbar">
@@ -28,34 +30,35 @@
           <% if current_user %>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right" id="topnav">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="">Dashboard</a></li>
+              <li><a href="/">Home</a></li>
+              <li class="active"><a href="/profile/<%= current_user.id %>">Dashboard</a></li>
               <li><a href-"">Logout</a></li>
             </ul>
           <% else %>
           <div class="nav-collapse collapse ">
             <ul class="nav pull-right" id="topnav">
               <li class="active"><a href="/">Home</a></li>
-              <li><a href="">Section-1</a></li>
-              <li><a href="">Section-2</a></li>
-              <li><a href="/user/register">Sign Up</a></li>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Sign Up</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
         <% end %>
       </div>
     </nav>
+
   <!-- HEADER -->
     <header id="top-section">
       <div class="hero-unit">
         <div class="container">
           <div class="row">
             <div class="span12 text-center">
-              <h2 class="">Just POLL it.</h2>
+              <h1 class="">Just POLL it.</h1>
               <p class="lead">
                 <% if session[:id] %>
-                <h3>Hi, <%= current_user.email.gsub(/(.+)@.+/, '\1') %>!</h3>
+                Hi, <%= current_user.email.gsub(/(.+)@.+/, '\1') %>! Welcome to POLLDOT. Please take a moment to scroll down and view your options. You can create new surveys below.
                 <% else %>
+                Hi, Welcome to POLLDOT. You're invited to create surveys and view results as they are answered by other POLLDOT members.
                 <h3>Get Started</h3>
                 <% end %>
               </p>
@@ -66,24 +69,28 @@
       <div class="inner-top-bg"></div><!-- OVERLAY BG -->
   </header>
   <!-- / HEADER -->
+
   <%= yield %>
+
 <!-- FOOTER -->
   <footer id="foot-sec">
     <div class="container ">
       <div class="row">
         <div class="span12 page-header text-center color-white">
-          <h3 style="padding-top:250px;">FOOTER SECTION</h3>
+          <h3 style="padding-top:250px;">POLLDOT is your connection to web based opinions.</h3>
         </div> 
       </div>      
       <div class="row">
         <div class="span12 text-center color-white">
-          <p>© 2013 All rights reserved</p>
+          <p>© 2014 Joe Wilmoth // Diana Calvached // Dustin Fox // Jay Rogers // Tara Roys</p>
         </div>
       </div>
     </div><!-- / CONTAINER-->
     </footer>
 <!-- / FOOTER -->
+
 <!-- ================================================== -->
+
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="assets/js/jquery.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script> 
