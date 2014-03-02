@@ -1,24 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/create_survey.js"></script>
   <script src="/js/application.js"></script>
-  <title>Survey.io</title>
-</head>
-<body>
-  <div class="container">
-    <header>
+  <title>POLLDOT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- GOOGLE FONT-->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700italic,700,500&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <!-- /GOOGLE FONT-->
+  <link href="/css/font-awesome.min.css" rel="stylesheet"> 
+  </head>
+    <body data-spy="scroll" data-target=".navbar">
+      <nav class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          <a class="brand" href="/">POLLDOT </a>
+          <% if current_user %>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right" id="topnav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="">Dashboard</a></li>
+              <li><a href-"">Logout</a></li>
+            </ul>
+          <% else %>
+          <div class="nav-collapse collapse ">
+            <ul class="nav pull-right" id="topnav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="">Section-1</a></li>
+              <li><a href="">Section-2</a></li>
+              <li><a href="/user/register">Sign Up</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+        <% end %>
+      </div>
+    </nav>
+  <!-- HEADER -->
+    <header id="top-section">
       <% if session[:id] %>
         <h1>Hi, <%= current_user.email.gsub(/(.+)@.+/, '\1') %>, how are you?</h1>
       <% else %>
         <h1>Hi, How are you?</h1>
       <% end %>
     </header>
+  <!-- / HEADER -->
   <%= yield %>
 </body>
+<footer>
+</footer>
 </html>
