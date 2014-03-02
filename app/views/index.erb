@@ -1,9 +1,27 @@
-<div class="container">
-
-  <% if session[:id] == nil %>
-    <h1>Click <a href="/login">Here</a> to login.</h1><br/>
-    <h1>Click <a href="/register">Here</a> to register.</h1>
-  <% else %>
-    <h2><a href="/logout">Logout</a></h2>
-  <% end %>
-</div>
+<section id="Section-1">
+	<div class="container">
+    <div class="row">
+	  <div class="span6 page-header color-white" >
+		  <h3 style="padding-top:50px;">What do you want to do?</h3>
+	  </div> 
+	</div>
+	<div class="row-fluid">
+	  <div class="span6 color-white">
+	    <div class="row-fluid">
+		  <div class="span12">
+            <p class="lead"><% if session[:id] == nil %>
+              Welcome to POLLDOT. You will experience the future of POLL data with advanced features like 'radio buttons' when you click to vote on surveys. Enjoy your experience and thank you for using the service.</p>
+            <span class="" id="startbtn">
+              <a class="btn btn-start" href="/login">Login</a>
+            </span>
+            <% else %>
+            <span class="" id="startbtn">
+              <a class="btn btn-start" href="/register">Sign Up</a>
+            </span>
+            <% end %>
+          </div>
+		</div><!-- /INNER ROW-FLUID-->
+	  </div><!-- SPAN6-->
+	</div>	
+  </div><!-- / CONTAINER-->
+</section>

@@ -1,10 +1,24 @@
-<div id="all_surveys">
-
-  <h2>All Surveys</h2>
-
-  <% Survey.all.each do |survey| %>
-      <h3><%= survey.name %></h3>
-      <h4><a href="/survey/take/<%= survey.id %>">Take Survey</a></h4>
-    <% end %>
-
-</div>
+<!--  SECTION-1 -->  
+<section id="Section-1">
+	<div class="container">
+		<div class="row">
+			<div class="span6 page-header color-white" >
+				<h3 style="padding-top:50px;">Choose a survey to take below: </h3>
+			</div> 
+		</div>
+		<div class="row-fluid">
+			<div class="span6 color-white">
+				<div class="row-fluid">
+					<div class="span12">		
+						<div id="all_surveys">
+							<% Survey.all.each do |survey| %>
+							<h3><%= survey.name %></h3>
+							<h4><a href="/survey/take/<%= survey.id %>">Take Survey</a></h4>
+							<% end %>
+						</div>
+					</div>
+				</div><!-- /INNER ROW-FLUID-->
+			</div><!-- SPAN6-->
+		</div>	
+	</div><!-- / CONTAINER-->
+</section>

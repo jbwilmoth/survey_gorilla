@@ -1,23 +1,39 @@
-<h3>Edit <%= @survey.name %> Survey</h3>
-<form id="edit_survey-<%= @survey.id %>" method="post" action="/edit_survey">
-  <div>
-    <label for="survey_title">Survey Title</label>
-    <input type="text" name="survey_name" value="<%= @survey.name %>" id="survey_title">
-  </div>
-  <div>
-    <label for="question">Question</label>
-    <input type="text" name="question" value="<%= @survey.questions[0].content %>" id="question">
-  </div>
-  <div>
-    <% @survey.questions[0].choices.each_with_index do |choice, index| %>
-      <div>
-        <label for="<%= index %>">Answer Option</label>
-        <input type="text" value="<%= choice.content %>" id="<%= index %>" name="choice<%= index %>">
+<section id="Section-1">
+  <div class="container">
+    <div class="row">
+      <div class="span6 page-header color-white" >
+        <h3 style="padding-top:50px;">Edit <%= @survey.name %> Survey</h3>
       </div>
-    <% end %>
-  </div>
-  <div>
-    <input type="submit" name="submit">
-  </div>
-  <input type="hidden" name="survey_id" value="<%= @survey.id %>">
-</form>
+    </div>
+    <div class="row-fluid">
+      <div class="span6 color-white">
+        <div class="row-fluid">
+          <div class="span12">
+            <form id="edit_survey-<%= @survey.id %>" method="post" action="/edit_survey">
+              <div>
+                <label for="survey_title">Survey Title</label>
+                <input type="text" name="survey_name" value="<%= @survey.name %>" id="survey_title">
+              </div>
+              <div>
+                <label for="question">Question</label>
+                <input type="text" name="question" value="<%= @survey.questions[0].content %>" id="question">
+              </div>
+              <div>
+                <% @survey.questions[0].choices.each_with_index do |choice, index| %>
+                <div>
+                  <label for="<%= index %>">Answer Option</label>
+                  <input type="text" value="<%= choice.content %>" id="<%= index %>" name="choice<%= index %>">
+                </div>
+                <% end %>
+              </div>
+              <div>
+                <input type="submit" name="submit">
+              </div>
+              <input type="hidden" name="survey_id" value="<%= @survey.id %>">
+            </form>
+          </div>
+        </div><!-- /INNER ROW-FLUID-->
+      </div><!-- SPAN6-->
+    </div>  
+  </div><!-- / CONTAINER-->
+</section>

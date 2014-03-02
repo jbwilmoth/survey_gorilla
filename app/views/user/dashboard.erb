@@ -1,6 +1,40 @@
-  <ul>
-    <a href="/">Home</a>
-    <a href="/surveys/all">Take a Survey</a>
-    <a href="/user/<%= @current_user.id %>/surveys">My Surveys</a>
-    <a href="/create_survey">Create a Survey</a>
-  </ul>
+<!-- SECTION-2 -->
+<section id="Section-2">
+  <div class="container">
+    <div class="row">
+	  <div class="span12 page-header text-center color-white" style="padding-top:30px;">
+		<h3>Optimize your experience.</h3>
+	  </div> 
+	</div>	
+	<div class="row">
+	  <div class="span4 text-center">
+		<div class="box">
+		  <h3>Take Survey</h3>
+			<p>POLLDOT is big on user experience. Voice your opinion on ideas and help others get the results they are looking for by using our service.</p>
+			<hr>
+			<p><a class="btn" href="/surveys/all">Take »</a></p>
+		</div>
+	  </div>        
+	  <div class="span4 text-center">
+		<div class="box">
+		  <h3>My Surveys</h3>
+          <p>You've probably created some awesome surveys. You can find your way to the results and make changes to your surveys here.
+		  <hr>
+		  <p><a class="btn" href="/user/<%=current_user.id%>/surveys">View My »</a></p>
+		</div>
+	  </div>		
+	  <div class="span4 text-center">
+		<div class="box">
+		  <h3>Create Survey</h3>
+		  <p>Looking for an answer to a problem? Need a vote on how many users prefer a certain color? Create your own POLLDOT survey to get results.</p>
+		  <hr>
+		  <p><a class="btn" href="/create_survey">Create »</a></p>
+		</div>
+	  </div>
+    </div>
+    <div class="brand span6 text-center">
+      <h1>POLLDOT.it</h1>
+    </div>
+  </div><!-- / CONTAINER-->
+</section> 
+<!-- / SECTION-2 -->

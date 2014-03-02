@@ -1,48 +1,66 @@
-<div id="my_surveys">
+<section id="Section-1">
+  <div class="container">
+    <div class="row">
+      <div class="span6 page-header color-white" >
+        <h3 style="padding-top:50px;">My Surveys</h3>
+      </div> 
+    </div>
+    <div class="row-fluid">
+      <div class="span6 color-white">
+        <div class="row-fluid">
+          <div class="span12">
+            <p class="lead"><% @current_user.surveys.each do |survey| %>
+              <h3><%= survey.name %></h3>
+              <h4><a id="edit-survey-form-<%= survey.id %>" href="/survey/<%= survey.id%>/edit">Edit Survey</a></h4>
+              <div id="append-survey-<%= survey.id %>"></div>
+              <h4><a id="view-results-<%= survey.id %>" href="/survey/<%= survey.id%>/results">View Results</a></h4>
+              <div id="append-results-<%= survey.id %>"></div>
+            </p>
 
-  <h2>My Surveys</h2>
+            <script type="text/javascript">
 
-  <% @current_user.surveys.each do |survey| %>
-    <h3><%= survey.name %></h3>
-    <h4><a id="edit-survey-form-<%= survey.id %>" href="/survey/<%= survey.id%>/edit">Edit Survey</a></h4><div id="append-survey-<%= survey.id %>"></div>
-    <h4><a id="view-results-<%= survey.id %>" href="/survey/<%= survey.id%>/results">View Results</a></h4><div id="append-results-<%= survey.id %>"></div>
-    <script type="text/javascript">
-      $('#edit-survey-form-<%= survey.id %>').on('click', function(event) {
-        event.preventDefault();
+            $('#edit-survey-form-<%= survey.id %>').on('click', function(event) {
+              event.preventDefault();
 
-        var url = $(this).attr('href');
+              var url = $(this).attr('href');
 
-        $.get(url, function(serverResponse) {
-          $('#append-survey-' + <%= survey.id %>).append(serverResponse);
-        })
-      });
+              $.get(url, function(serverResponse) {
+                $('#append-survey-' + <%= survey.id %>).append(serverResponse);
+              })
+            });
 
-      $('#edit_survey-<%= survey.id %>').on('submit', function(event) {
-        event.preventDefault;
+            $('#edit_survey-<%= survey.id %>').on('submit', function(event) {
+              event.preventDefault;
 
-        var data = $(this).serialize();
+              var data = $(this).serialize();
 
-        $.post('/edit_survey', data, function(serverResponse) {
-          $(this).hide();
-        })
-      });
+              $.post('/edit_survey', data, function(serverResponse) {
+                $(this).hide();
+              })
+            });
 
-      $('#view-results-<%= survey.id %>').on('click', function(event) {
-        event.preventDefault();
+            $('#view-results-<%= survey.id %>').on('click', function(event) {
+              event.preventDefault();
 
-        var view_url = $(this).attr('href');
+              var view_url = $(this).attr('href');
 
-        $.get(view_url, function(serverResponse) {
-          $('#append-results-<%= survey.id %>').append(serverResponse);
-        })
-      });
+              $.get(view_url, function(serverResponse) {
+                $('#append-results-<%= survey.id %>').append(serverResponse);
+              })
+            });
 
-      $('#back_link').on('click', function(event) {
-        event.preventDefault();
-        $('#append-results-<%= survey.id %>').hide();
-      });
-    </script>
-  <% end %>
-</div>
+            $('#back_link').on('click', function(event) {
+              event.preventDefault();
+              $('#append-results-<%= survey.id %>').hide();
+            });
+            </script>
+            <% end %>
+          </div>
+        </div>
+      </div><!-- /INNER ROW-FLUID-->
+    </div><!-- SPAN6-->
+  </div>  
+</div><!-- / CONTAINER-->
+</section>
 
-
+<!-- / SECTION-1 -->

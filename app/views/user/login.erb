@@ -1,9 +1,23 @@
-<div class="container"> 
-  <form id="login" method="post" action="/login">
-  	<fieldset>
-      <input type="text" name="email" placeholder="Email"> 
-      <input type="password" name="password" placeholder="Password">
-      <input name="login" type="submit" value="Login">
-    </fieldset>
-  </form>
-</div>
+<!--  SECTION-1 -->  
+<section id="Section-1">
+	<div class="container">
+		<div class="row">
+			<div class="span6 page-header color-white" >
+				<h3 style="padding-top:50px;">Please login to expose the awesome: </h3>
+			</div> 
+		</div>
+		<div class="row-fluid">
+			<div class="span6 color-white">
+				<div class="row-fluid">
+					<div class="span12">
+						<p class="lead"> <form id="login" method="post" action="/login">
+							<input type="text" name="email" placeholder="Email"> 
+							<input type="password" name="password" placeholder="Password"><hr>
+							<input class="btn" name="login" type="submit" value="Login">
+						</form></p>
+					</div>
+				</div><!-- /INNER ROW-FLUID-->
+			</div><!-- SPAN6-->
+		</div>	
+	</div><!-- / CONTAINER-->
+</section>
