@@ -1,9 +1,15 @@
-<div class="container">
-
+<section id="Section-1">
+  <div class="container">
+    <div class="row">
+      <div class="span6 page-header color-white">
+      	<h3 style="padding-top:50px;">What would you like to do?</h3>
   <% if session[:id] == nil %>
-    <h1>Click <a href="/login">Here</a> to login.</h1><br/>
-    <h1>Click <a href="/register">Here</a> to register.</h1>
+    <span class="" id="startbtn">
+      <a class="btn btn-start" href="/login">Login</a>
+    </span>
   <% else %>
-    <h2><a href="/logout">Logout</a></h2>
+    <span class="" id="startbtn">
+      <a class="btn btn-start" href="/register">Sign Up</a>
+    </span>
   <% end %>
 </div>
