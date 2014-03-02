@@ -1,55 +1,40 @@
-
-
-  <ul>
-    <a href="/">Home</a>
-    <a href="/surveys/all">Take a Survey</a>
-    <a href="/user/<%= @current_user.id %>/surveys">My Surveys</a>
-    <a href="/create_survey">Create a Survey</a>
-  </ul>
-
-  <!-- SECTION-2 -->
+<!-- SECTION-2 -->
 <section id="Section-2">
   <div class="container">
     <div class="row">
 	  <div class="span12 page-header text-center color-white" style="padding-top:30px;">
-		<h3>SECTION-3 HOW MACH IS THE FISH</h3>
+		<h3>Optimize your experience.</h3>
 	  </div> 
 	</div>	
 	<div class="row">
 	  <div class="span4 text-center">
 		<div class="box">
-		  <h3>Dashboard</h3>
-			<p>Take a survey.</p>
+		  <h3>Take Survey</h3>
+			<p>POLLDOT is big on user experience. Voice your opinion on ideas and help others get the results they are looking for by using our service.</p>
 			<hr>
-			<p><a class="btn" href="/surveys/all">Take Survey</a></p>
+			<p><a class="btn" href="/surveys/all">Take »</a></p>
 		</div>
 	  </div>        
-		
-		<div class="span4 text-center">
-			<div class="box">
-				<h3>Heading</h3>
-					<div class="pricing-table-features">
-						<p><strong>50</strong> Email Addresses</p>
-						<p><strong>35GB</strong> of Storage</p>
-						<p><strong>40</strong> Databases</p>
-						<p><strong>10</strong> Domains</p>
-						<p><strong>24/7 Unlimited</strong> Support</p>
-					</div>
-					<hr>
-				<p><a class="btn" href="http://www.bootstraptor.com">View details »</a></p>
-			</div>
-		</div>		
-		
-		<div class="span4 text-center">
-			<div class="box">
-				<h3>Heading</h3>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-				<hr>
-				<p><a class="btn" href="http://www.bootstraptor.com">View details »</a></p>
-			</div>
+	  <div class="span4 text-center">
+		<div class="box">
+		  <h3>My Surveys</h3>
+          <p>You've probably created some awesome surveys. You can find your way to the results and make changes to your surveys here.
+		  <hr>
+		  <p><a class="btn" href="/user/<%=current_user.id%>/surveys">View My »</a></p>
 		</div>
-      </div>
-	</div><!-- / CONTAINER-->
-	
- </section> 
- <!-- / SECTION-2 -->
+	  </div>		
+	  <div class="span4 text-center">
+		<div class="box">
+		  <h3>Create Survey</h3>
+		  <p>Looking for an answer to a problem? Need a vote on how many users prefer a certain color? Create your own POLLDOT survey to get results.</p>
+		  <hr>
+		  <p><a class="btn" href="/create_survey">Create »</a></p>
+		</div>
+	  </div>
+    </div>
+    <div class="brand span6 text-center">
+      <h1>POLLDOT.it</h1>
+    </div>
+  </div><!-- / CONTAINER-->
+</section> 
+<!-- / SECTION-2 -->

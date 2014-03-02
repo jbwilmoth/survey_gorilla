@@ -1,13 +1,29 @@
-<div class="container"> 
-  <form id="sign-up" method="POST" action="/register">
-  	<fieldset>
+<!--  SECTION-1 -->  
+<section id="Section-1">
+  <div class="container">
+    <div class="row">
+    <div class="span6 page-header color-white" >
+      <h3 style="padding-top:50px;">Enter your creds to sign up:</h3>
+    </div> 
+  </div>
+  <div class="row-fluid">
+    <div class="span6 color-white">
+      <div class="row-fluid">
+        <div class="span12">
+            <p class="lead"><form id="sign-up" method="POST" action="/register">
+    <fieldset>
       <input type="text" name="user[email]" placeholder="Email"> 
       <br>
       <input type="password" name="user[password]" placeholder="Password">
       <br>
       <input type="password" name="user[password_confirmation]" placeholder="Confirm Password">
       <br>
-      <input name="submit[register]" type="submit" value="Sign Up">
+      <input class="btn" name="submit[register]" type="submit" value="Sign Up">
     </fieldset>
-  </form>
-</div>
+  </form></p>
+        </div>
+      </div><!-- /INNER ROW-FLUID-->
+    </div><!-- SPAN6-->
+  </div>  
+  </div><!-- / CONTAINER-->
+</section>
