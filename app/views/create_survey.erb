@@ -2,6 +2,7 @@
   <h3>Create Survey: </h3>
   <div id='survey-name'></div>
   <div id='question-context'></div>
+  <div class='choice-feature'>Added Choices: </div>
   <div id='choice-context'></div>
   <div>
     <form id='create-survey' action='/create_survey' method='post'>
@@ -12,4 +13,6 @@
   <div id='append-question'></div>
   <div id='append-choice'></div>
   <div id='finish-survey'></div>
+  <a class='add-question' id='add-question-link'>Add Question</a>
+  <a class='finish-survey' href="/user/<%= current_user.id %>/surveys">Finish Survey</a>
 </div>

@@ -3,30 +3,30 @@ get '/create_survey' do
 end
 
 post '/create_survey' do
-  session[:id] = 1
   survey = Survey.create!(creator_id: session[:id],
                           name: params[:name])
 end
 
 get '/add_question' do
-  erb :add_question
+  erb :add_question, :layout => false
 end
 
 post '/add_question' do
-  session[:id] = 1
+  puts '=============== ADD QUESTION ===================='
+  p params
   content_type :json
   survey = Survey.last
   survey.questions.create!(content: params[:question_context])
-  {user_id: session[:id]}.to_json
+  # {user_id: session[:id]}.to_json
 end
 
 get '/add_choice' do
-  erb :add_choices
+  erb :add_choices, :layout => false
 end
 
 post '/add_choice' do
+  puts '======================== ADD CHOICE ========================='
+  p params
   question = Question.last
-  params.each do |choice|
-    question.choices.create!(content: choice[1])
-  end
+  question.choices.create!(content: params[:choice_context])
 end
