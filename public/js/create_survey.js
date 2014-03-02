@@ -45,8 +45,9 @@ $(document).ready(function() {
 
             // Posts the choice data to the server
             $.post('/add_choice', data, function() {
+              $('#choice-context').append(choiceContext + '</br>');
+              $('#choice-input').val('');
               // window.location.href = "/user/"+ userId +"/surveys";
-
             });
           });
         });
