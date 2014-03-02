@@ -1,5 +1,5 @@
 <h3>Edit <%= @survey.name %> Survey</h3>
-<form method="post" action="/edit_survey">
+<form id="edit_survey-<%= @survey.id %>" method="post" action="/edit_survey">
   <div>
     <label for="survey_title">Survey Title</label>
     <input type="text" name="survey_name" value="<%= @survey.name %>" id="survey_title">
