@@ -12,16 +12,16 @@ nav ul li:hover > ul {
 	display: block;
 }
 nav ul {
-	background: #efefef; 
-	background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
-	background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
-	background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%); 
+	background: #efefef;
+	background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);
+	background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%);
+	background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%);
 	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
 	padding: 0 20px;
-	border-radius: 10px;  
+	border-radius: 10px;
 	list-style: none;
 	position: relative;
-	display: inline-table; 
+	display: inline-table;
 }
 nav ul:after {
 	content: "";
@@ -54,7 +54,7 @@ nav ul ul {
 	top: 100%;
 }
 nav ul ul li {
-	float: none; 
+	float: none;
 	border-top: 1px solid #6b727c;
 	border-bottom: 1px solid #575f6a;
 	position: relative;
@@ -62,7 +62,7 @@ nav ul ul li {
 nav ul ul li a {
 	padding: 15px 40px;
 	color: #fff;
-}	
+}
 nav ul ul li a:hover {
 	background: #4b545f;
 }

@@ -8,7 +8,7 @@ post '/create_survey' do
 end
 
 get '/add_question' do
-  erb :add_question
+  erb :add_question, :layout => false
 end
 
 post '/add_question' do
@@ -19,12 +19,13 @@ post '/add_question' do
 end
 
 get '/add_choice' do
-  erb :add_choices
+  erb :add_choices, :layout => false
 end
 
 post '/add_choice' do
   question = Question.last
-  params.each do |choice|
-    question.choices.create!(content: choice[1])
-  end
+  p params
+  # params.each do |choice|
+    # question.choices.create!(content: choice[1])
+  # end
 end

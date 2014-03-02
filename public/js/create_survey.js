@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  // Hides the link
+  $('.finish-survey').toggle();
+
   // Action to be taken when the create-survey submit button is clicked
   $('#create-survey').on('submit', function(event) {
     event.preventDefault();
@@ -22,7 +25,7 @@ $(document).ready(function() {
 
         // Posts the question data to the server
         $.post('/add_question', data, function(serverUserId){
-          userId = serverUserId['user_id']
+          userId = serverUserId['user_id'];
         }, 'json');
 
         var questionContext = $(this.question_context).val();
@@ -32,6 +35,7 @@ $(document).ready(function() {
         // Gets the add-choice form
         $.get('/add_choice', function(serverResponse) {
           $('#append-choice').append(serverResponse);
+          $('.finish-survey').toggle();
 
           // Action to be taken when the add-choice submit button is clicked
           $('#add-choice').on('submit', function(event) {
@@ -41,9 +45,9 @@ $(document).ready(function() {
 
             // Posts the choice data to the server
             $.post('/add_choice', data, function() {
-              window.location.href = "/user/"+ userId +"/surveys";
-            })
+              // window.location.href = "/user/"+ userId +"/surveys";
 
+            });
           });
         });
       });
