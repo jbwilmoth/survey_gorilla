@@ -1,6 +1,10 @@
 get '/survey/:survey_id/edit' do
   @survey = Survey.find(params[:survey_id])
-  erb :edit_survey
+  if request.xhr?
+    erb :edit_survey, :layout => false
+  else
+    redirect ('/')
+  end
 end
 
 post '/edit_survey' do
@@ -13,7 +17,11 @@ post '/edit_survey' do
     choice.update_attributes(content: params[("choice#{index}").to_sym])
   end
 
-  redirect "/user/#{current_user.id}/surveys"
+  if request.xhr?
+
+  else
+    redirect "/user/#{current_user.id}/surveys"
+  end
 end
 
 get '/survey/:survey_id/results' do
@@ -25,5 +33,9 @@ get '/survey/:survey_id/results' do
     end
   end
 
-  erb :view_results
+  if request.xhr?
+    erb :view_results, :layout => false
+  else
+    erb :view_results
+  end
 end

@@ -4,8 +4,45 @@
 
   <% @current_user.surveys.each do |survey| %>
     <h3><%= survey.name %></h3>
-    <h4><a href="/survey/<%= survey.id%>/edit">Edit Survey</a></h4>
-    <h4><a href="/survey/<%= survey.id%>/results">View Results</a></h4>
-    <% end %>
+    <h4><a id="edit-survey-form-<%= survey.id %>" href="/survey/<%= survey.id%>/edit">Edit Survey</a></h4><div id="append-survey-<%= survey.id %>"></div>
+    <h4><a id="view-results-<%= survey.id %>" href="/survey/<%= survey.id%>/results">View Results</a></h4><div id="append-results-<%= survey.id %>"></div>
+    <script type="text/javascript">
+      $('#edit-survey-form-<%= survey.id %>').on('click', function(event) {
+        event.preventDefault();
 
+        var url = $(this).attr('href');
+
+        $.get(url, function(serverResponse) {
+          $('#append-survey-' + <%= survey.id %>).append(serverResponse);
+        })
+      });
+
+      $('#edit_survey-<%= survey.id %>').on('submit', function(event) {
+        event.preventDefault;
+
+        var data = $(this).serialize();
+
+        $.post('/edit_survey', data, function(serverResponse) {
+          $(this).hide();
+        })
+      });
+
+      $('#view-results-<%= survey.id %>').on('click', function(event) {
+        event.preventDefault();
+
+        var view_url = $(this).attr('href');
+
+        $.get(view_url, function(serverResponse) {
+          $('#append-results-<%= survey.id %>').append(serverResponse);
+        })
+      });
+
+      $('#back_link').on('click', function(event) {
+        event.preventDefault();
+        $('#append-results-<%= survey.id %>').hide();
+      });
+    </script>
+  <% end %>
 </div>
+
+

@@ -14,7 +14,11 @@ end
 get '/user/:user_id/surveys' do
   @current_user = User.find(session[:id])
 
-  erb :'/survey_jr/my_surveys_jr'
+  if request.xhr?
+
+  else
+    erb :'/survey_jr/my_surveys_jr'
+  end
 end
 
 post '/survey/:survey_id/record' do
