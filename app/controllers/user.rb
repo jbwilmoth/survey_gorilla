@@ -9,7 +9,7 @@ post '/register' do
     session[:id] = @user.id
     redirect "/profile/#{@user.id}"
   else
-    @errors = @user.errors.full_messages
+    @errors = @user.errors.messages
     erb :'user/register'
   end
 end
@@ -24,16 +24,27 @@ get '/profile/:profile_id/edit' do
 end
 
 post '/profile/:profile_id/edit' do
-  current_user.edit_attributes(params[:user])
-  redirect "/profile/#{current_user.id}"
+  current_user.update_attributes(params[:user])
+
+  if current_user.save
+    redirect "/profile/#{current_user.id}"
+  else
+    @errors = current_user.errors.messages
+    erb :'/user/edit_profile'
+  end
 end
 
 ## Delete your account
 get '/profile/:profile_id/delete' do
-    if current_user.id.to_i == params[:profile_id].to_i
-    erb :'user/confirm_delete'
+
+  if current_user.id.to_i == params[:profile_id].to_i
+    if request.xhr?
+      erb :'user/confirm_delete', :layout => false
     else
-    redirect '/' #change to 404 error, add 404 get to session
+      redirect "/user/edit_profile" #change to 404 error, add 404 get to session
+    end
+  else
+    redirect '/'
   end
 end
 
@@ -47,7 +58,6 @@ end
 get '/profile/:profile_id' do
   if current_user.id.to_i == params[:profile_id].to_i
     @surveys = Survey.where(creator_id: current_user.id).order("created_at DESC")
-    @your_surveys =
     erb :'user/dashboard'
   else
     redirect '/' #change to 404 error, add 404 get to session

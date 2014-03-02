@@ -10,7 +10,7 @@ post '/login' do
     session[:id] = @user.id
     redirect "/profile/#{@user.id}"
   else
-    @errors = ["Username and password do not exist."]
+    @errors = {:Invalid=>["Incorrect Login"]}
     erb :"user/login"
   end
 end

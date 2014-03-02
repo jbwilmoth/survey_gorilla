@@ -18,7 +18,7 @@ post '/edit_survey' do
   end
 
   if request.xhr?
-
+    p "test"
   else
     redirect "/user/#{current_user.id}/surveys"
   end
@@ -37,5 +37,16 @@ get '/survey/:survey_id/results' do
     erb :view_results, :layout => false
   else
     erb :view_results
+  end
+end
+
+get '/survey/:survey_id/delete' do
+
+  @survey = Survey.find(params[:survey_id])
+
+  if request.xhr?
+    @survey.destroy
+  else
+    erb :'/user/dashboard'
   end
 end

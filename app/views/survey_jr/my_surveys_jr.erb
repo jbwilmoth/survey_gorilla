@@ -3,7 +3,7 @@
     <div class="row">
       <div class="span6 page-header color-white" >
         <h3 style="padding-top:50px;">My Surveys</h3>
-      </div> 
+      </div>
     </div>
     <div class="row-fluid">
       <div class="span6 color-white">
@@ -19,23 +19,24 @@
 
             <script type="text/javascript">
 
-            $('#edit-survey-form-<%= survey.id %>').on('click', function(event) {
+            $(document).on('click', '#edit-survey-form-<%= survey.id %>', function(event) {
               event.preventDefault();
 
-              var url = $(this).attr('href');
+              var url = $('#edit-survey-form-<%= survey.id %>').attr('href');
+              console.log(url);
 
               $.get(url, function(serverResponse) {
-                $('#append-survey-' + <%= survey.id %>).append(serverResponse);
+                $('#append-survey-<%= survey.id %>').html(serverResponse);
               })
             });
 
-            $('#edit_survey-<%= survey.id %>').on('submit', function(event) {
-              event.preventDefault;
+            $(document).on('submit', '#edit_survey-<%= survey.id %>', function(event) {
+              event.preventDefault();
 
-              var data = $(this).serialize();
+              var data = $('#edit_survey-<%= survey.id %>').serialize();
 
               $.post('/edit_survey', data, function(serverResponse) {
-                $(this).hide();
+                $('#survey_edit_form').remove();
               })
             });
 
@@ -45,13 +46,24 @@
               var view_url = $(this).attr('href');
 
               $.get(view_url, function(serverResponse) {
-                $('#append-results-<%= survey.id %>').append(serverResponse);
+                $('#append-results-<%= survey.id %>').html(serverResponse);
               })
             });
 
-            $('#back_link').on('click', function(event) {
+            $(document).on('click', '#back_link', function(event) {
               event.preventDefault();
-              $('#append-results-<%= survey.id %>').hide();
+              $('#append-results-<%= survey.id %>').children().remove();
+            });
+
+            $(document).on('submit','#delete_survey-<%= survey.id %>', function(event) {
+              event.preventDefault();
+
+              var delete_url = $(this).attr('action');
+
+              $.get(delete_url, function(serverResponse) {
+                $('#survey_edit_form').toggle();
+                location.reload();
+              })
             });
             </script>
             <% end %>
@@ -59,7 +71,7 @@
         </div>
       </div><!-- /INNER ROW-FLUID-->
     </div><!-- SPAN6-->
-  </div>  
+  </div>
 </div><!-- / CONTAINER-->
 </section>
 
