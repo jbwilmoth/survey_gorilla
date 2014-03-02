@@ -12,10 +12,12 @@ get '/add_question' do
 end
 
 post '/add_question' do
+  puts '=============== ADD QUESTION ===================='
+  p params
   content_type :json
   survey = Survey.last
   survey.questions.create!(content: params[:question_context])
-  {user_id: session[:id]}.to_json
+  # {user_id: session[:id]}.to_json
 end
 
 get '/add_choice' do
@@ -23,6 +25,8 @@ get '/add_choice' do
 end
 
 post '/add_choice' do
+  puts '======================== ADD CHOICE ========================='
+  p params
   question = Question.last
   question.choices.create!(content: params[:choice_context])
 end
