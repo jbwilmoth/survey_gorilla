@@ -28,7 +28,6 @@ post '/profile/:profile_id/edit' do
   redirect "/profile/#{current_user.id}"
 end
 
-
 ## Delete your account
 get '/profile/:profile_id/delete' do
     if current_user.id.to_i == params[:profile_id].to_i

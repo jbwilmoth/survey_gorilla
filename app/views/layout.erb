@@ -11,7 +11,7 @@
   <div class="container">
     <header>
       <% if session[:id] %>
-        <h1>Hi, <%= current_user.email.gsub(/(.+)@.+/, '\1') %> How are you?</h1>
+        <h1>Hi, <%= current_user.email.gsub(/(.+)@.+/, '\1') %>, how are you?</h1>
       <% else %>
         <h1>Hi, How are you?</h1>
       <% end %>

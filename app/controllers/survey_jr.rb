@@ -12,8 +12,6 @@ get '/survey/take/:survey_id' do
 end
 
 get '/user/:user_id/surveys' do
-
-  # @user = User.find(params[:user_id])
   @current_user = User.find(session[:id])
 
   erb :'/survey_jr/my_surveys_jr'
@@ -30,6 +28,6 @@ post '/survey/:survey_id/record' do
         choice_id: params[question.id]})
   end
 
-    redirect "/user/#{@current_user.id}"
+    redirect "/profile/#{@current_user.id}"
 
 end
