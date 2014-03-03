@@ -18,7 +18,7 @@ post '/edit_survey' do
   end
 
   if request.xhr?
-    p "test"
+
   else
     redirect "/user/#{current_user.id}/surveys"
   end

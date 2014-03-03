@@ -9,6 +9,10 @@
       <div class="span6 color-white">
         <div class="row-fluid">
           <div class="span12">
+            <% if current_user.surveys.count == 0 %>
+              <p class="lead">
+                <h3>It looks like you haven't created any surveys...</h3>
+              <% end %>
             <p class="lead"><% @current_user.surveys.each do |survey| %>
               <h3><%= survey.name %></h3>
               <h4><a id="edit-survey-form-<%= survey.id %>" href="/survey/<%= survey.id%>/edit">Edit Survey</a></h4>

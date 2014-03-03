@@ -1,7 +1,7 @@
 <div id="take_survey">
 
   <h2>Survey: <%= @survey.name %></h2>
-<form action="/survey/<%= @survey.id %>/record" method="POST" id="submit">
+<form action="/survey/<%= @survey.id %>/record" method="POST" id="survey_submit">
   <h4><% @survey.questions.each do |question| %></h4>
     <h2>Question: <%= question.content %></h2>
       <% question.choices.each do |choice| %>
@@ -15,3 +15,18 @@
 </form>
 
 </div>
+
+<script type="text/javascript">
+
+  $('#survey_submit').on('submit', function(event) {
+    event.preventDefault();
+
+    var url= $(this).attr('action')
+    var data = $(this).serialize();
+
+    $.post(url, data, function(serverResponse) {
+      console.log(serverResponse);
+      $('#take_survey').html(serverResponse);
+    })
+  });
+</script>
