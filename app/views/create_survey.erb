@@ -1,6 +1,6 @@
 <!--  SECTION-1 -->
 <section id="Section-1">
-  <div class="container">
+  <div class="container offset4">
     <div class="row">
       <div class="span6 page-header color-white" >
         <h3 style="padding-top:50px;">Create Survey: </h3>
@@ -17,8 +17,10 @@
             <div id='choice-context'></div>
             <div>
               <form id='create-survey' action='/create_survey' method='post'>
-                <input type='text' name='name' placeholder='Survey Name'>
-                <input type='submit' value='Submit Name'>
+                <fieldset>
+                <input type='text' name='name' placeholder='Survey Name'><hr>
+                <input class="btn" type='submit' value='Submit Name'>
+                </fieldset>
               </form>
             </div>
             <div id='append-question'></div>
