@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Hides the links
-  $('.finish-survey').toggle();
+  $('.finish-survey').hide();
   $('.add-question').toggle();
   $('.choice-feature').toggle();
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
           $.get('/add_choice', function(serverResponse) {
             $('#append-choice').append(serverResponse);
             // $('.add-question').toggle();
-            $('.finish-survey').toggle();
+
 
             // Action to be taken when the add-choice submit button is clicked
             $('#add-choice').on('submit', function(event) {
@@ -55,7 +55,7 @@ $(document).ready(function() {
                 $('.choice-feature').show();
                 $('#choice-context').append(choiceContext + '</br>');
                 $('#choice-input').val('');
-                // window.location.href = "/user/"+ userId +"/surveys";
+                $('.finish-survey').show();    // window.location.href = "/user/"+ userId +"/surveys";
               });
             });
           });

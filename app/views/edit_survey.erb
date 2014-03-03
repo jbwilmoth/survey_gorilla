@@ -1,6 +1,6 @@
-<section id="Section-1">
+<div id="survey_edit_form">
   <div class="container">
-    <div class="row">
+    <div class= "row">
       <div class="span6 page-header color-white" >
         <h3 style="padding-top:50px;">Edit <%= @survey.name %> Survey</h3>
       </div>
@@ -9,7 +9,7 @@
       <div class="span6 color-white">
         <div class="row-fluid">
           <div class="span12">
-            <form id="edit_survey-<%= @survey.id %>" method="post" action="/edit_survey">
+            <form id="edit_survey-<%= @survey.id %>" class="edit_delete_survey" method="post" action="/edit_survey">
               <div>
                 <label for="survey_title">Survey Title</label>
                 <input type="text" name="survey_name" value="<%= @survey.name %>" id="survey_title">
@@ -28,12 +28,15 @@
               </div>
               <div>
                 <input type="submit" name="submit">
+                <input type="hidden" name="survey_id" value="<%= @survey.id %>">
               </div>
-              <input type="hidden" name="survey_id" value="<%= @survey.id %>">
+            </form>
+                <form id="delete_survey-<%= @survey.id %>" class="edit_delete_survey" method="get" action="/survey/<%= @survey.id %>/delete"><input type="submit" name="submit" value="Delete">
             </form>
           </div>
         </div><!-- /INNER ROW-FLUID-->
       </div><!-- SPAN6-->
-    </div>  
+    </div>
   </div><!-- / CONTAINER-->
-</section>
+</div>
+
