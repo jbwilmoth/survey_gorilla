@@ -1,5 +1,5 @@
 <section id="Section-1">
-  <div class="container">
+  <div class="container offset4">
     <div class="row-fluid">
       <div class="span6 color-white">
         <div class="row-fluid">
@@ -28,12 +28,12 @@
                            <label for="password_confirmation">Password Confirmation</label>
                             <input type="password" name="user[password_confirmation]" placeholder="Password Confirmation" id="password_confirmation">
                           <div>
-                            <input type="submit" name="submit">
+                            <input class="btn" type="submit" name="submit">
                           </div>
                         </form>
                           </div>
                          </form>
-                        <form id="delete_user-<%= current_user.id %>" method="get" action="/profile/<%= current_user.id %>/delete"><input type="submit" name="submit" value="Delete Account">
+                        <form id="delete_user-<%= current_user.id %>" method="get" action="/profile/<%= current_user.id %>/delete"><input class="btn-danger" type="submit" name="submit" value="Delete Account">
                         </form>
                         <div id="are_you_sure">
                         </div>
